@@ -1,338 +1,660 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 
-body{
+/* HEADER */
 
-background:#000;
-color:white;
+.header {
+    width: 100%;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+}
 
+.logo {
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #bdbdbd;
+}
+
+.header-button {
+    border: 1px solid #444;
+    padding: 11px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.header-button:hover {
+    background: #fff;
+    color: #000;
 }
 
 
+/* HERO */
 
-header{
+.hero {
+    min-height: 100vh;
+    padding: 130px 8% 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
 
-display:flex;
-justify-content:space-between;
-align-items:center;
+.hero-content {
+    width: 48%;
+    position: relative;
+    z-index: 3;
+}
 
-padding:25px 8%;
+.badge {
+    display: inline-block;
+    border: 1px solid #333;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #aaa;
+    margin-bottom: 25px;
+}
 
+.hero h1 {
+    font-size: clamp(50px, 6vw, 90px);
+    line-height: .95;
+    letter-spacing: -4px;
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+    color: #888;
+}
+
+.hero p {
+    color: #aaa;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 550px;
+    margin-bottom: 30px;
+}
+
+.hero-price {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.hero-price span {
+    color: #777;
+    font-size: 14px;
+}
+
+.hero-price strong {
+    font-size: 45px;
+    margin-top: 3px;
+}
+
+.buy-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #20d95a;
+    color: #000;
+    font-weight: 900;
+    padding: 17px 38px;
+    border-radius: 40px;
+    font-size: 15px;
+    transition: .3s;
+    box-shadow: 0 10px 40px rgba(32, 217, 90, .15);
+}
+
+.buy-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 50px rgba(32, 217, 90, .3);
+}
+
+.security {
+    margin-top: 15px;
+    color: #777;
+    font-size: 12px;
 }
 
 
-.logo{
+/* PRODUTO HERO */
 
-font-size:28px;
-font-weight:bold;
+.hero-product {
+    width: 48%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 
+.hero-product img {
+    width: min(600px, 100%);
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 30px 60px rgba(255,255,255,.08));
+    animation: floating 4s ease-in-out infinite;
+}
+
+.glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: #151515;
+    filter: blur(40px);
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
 }
 
 
+/* BENEFÍCIOS */
 
-nav a{
+.benefits {
+    padding: 120px 8%;
+    background: #0b0b0b;
+}
 
-color:white;
-text-decoration:none;
-margin-left:25px;
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
 
+.section-title span,
+.small-title,
+.offer-content > span {
+    color: #20d95a;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.section-title h2 {
+    font-size: clamp(35px, 5vw, 60px);
+    letter-spacing: -2px;
+    margin-top: 15px;
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.benefit-card {
+    padding: 35px 28px;
+    border: 1px solid #202020;
+    border-radius: 20px;
+    background: #101010;
+    transition: .3s;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    border-color: #333;
+}
+
+.icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #1b1b1b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    margin-bottom: 25px;
+}
+
+.benefit-card h3 {
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.benefit-card p {
+    color: #777;
+    line-height: 1.6;
 }
 
 
+/* PRODUTO */
 
+.product {
+    min-height: 750px;
+    padding: 100px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
 
-.hero{
+.product-image {
+    width: 48%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
 
-min-height:90vh;
+.product-image img {
+    width: 100%;
+    max-width: 570px;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 30px 50px rgba(255,255,255,.07));
+}
 
-display:flex;
-align-items:center;
-justify-content:space-around;
+.product-circle {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    background: #111;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
-padding:50px 8%;
+.product-info {
+    width: 45%;
+}
 
+.product-info h2 {
+    font-size: clamp(40px, 5vw, 65px);
+    line-height: 1;
+    letter-spacing: -3px;
+    margin: 20px 0;
+}
+
+.product-info > p {
+    color: #888;
+    line-height: 1.8;
+    font-size: 17px;
+    max-width: 500px;
+    margin-bottom: 35px;
+}
+
+.features {
+    margin-bottom: 35px;
+}
+
+.features div {
+    border-top: 1px solid #222;
+    padding: 15px 0;
+    display: flex;
+    gap: 20px;
+}
+
+.features strong {
+    color: #20d95a;
+}
+
+.features span {
+    color: #aaa;
 }
 
 
+/* REVIEWS */
 
-.hero-text{
+.reviews {
+    padding: 110px 8%;
+    background: #080808;
+}
 
-max-width:500px;
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
 
+.review-card {
+    background: #111;
+    border: 1px solid #202020;
+    padding: 35px;
+    border-radius: 22px;
+}
+
+.stars {
+    color: #ffd43b;
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.review-card p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.review-card strong {
+    font-size: 13px;
+    color: #777;
 }
 
 
-.hero h1{
+/* OFERTA */
 
-font-size:55px;
-line-height:1.1;
+.offer {
+    padding: 90px 8%;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+}
 
+.offer-image {
+    width: 45%;
+}
+
+.offer-image img {
+    width: 100%;
+    max-width: 550px;
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,.5));
+}
+
+.offer-content {
+    width: 45%;
+}
+
+.offer-content h2 {
+    font-size: clamp(42px, 5vw, 65px);
+    margin: 15px 0;
+    letter-spacing: -3px;
+}
+
+.offer-content p {
+    color: #888;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.price {
+    margin-bottom: 25px;
+}
+
+.price small {
+    display: block;
+    color: #777;
+}
+
+.price strong {
+    display: block;
+    font-size: clamp(50px, 6vw, 75px);
+    letter-spacing: -4px;
+    margin-top: 5px;
+}
+
+.buy-button.big {
+    width: 100%;
+    max-width: 450px;
+}
+
+.safe {
+    color: #777;
+    font-size: 12px;
+    margin-top: 15px;
 }
 
 
+/* FAQ */
 
-.hero p{
+.faq {
+    padding: 110px 8%;
+}
 
-font-size:20px;
-margin:25px 0;
-color:#ccc;
+.faq-container {
+    max-width: 850px;
+    margin: auto;
+}
 
+details {
+    border-top: 1px solid #222;
+    padding: 25px 0;
+}
+
+details:last-child {
+    border-bottom: 1px solid #222;
+}
+
+summary {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+details p {
+    color: #777;
+    line-height: 1.7;
+    margin-top: 15px;
+    max-width: 700px;
 }
 
 
+/* CTA FINAL */
 
-.hero-image img{
+.final-cta {
+    text-align: center;
+    padding: 120px 20px;
+    background: #101010;
+}
 
-width:420px;
+.final-cta h2 {
+    font-size: clamp(40px, 6vw, 70px);
+    letter-spacing: -3px;
+}
 
-border-radius:30px;
+.final-cta p {
+    color: #888;
+    margin: 20px 0;
+}
 
+.final-price {
+    font-size: 55px;
+    font-weight: 900;
+    margin-bottom: 30px;
 }
 
 
+/* FOOTER */
 
+footer {
+    padding: 40px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555;
+}
 
-.btn{
-
-display:inline-block;
-
-background:white;
-color:black;
-
-padding:16px 40px;
-
-border-radius:40px;
-
-font-weight:bold;
-
-text-decoration:none;
-
-transition:.3s;
-
+footer p {
+    font-size: 12px;
 }
 
 
+/* MOBILE */
 
-.btn:hover{
+@media (max-width: 900px) {
 
-transform:scale(1.05);
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 130px;
+    }
 
+    .hero-content,
+    .hero-product {
+        width: 100%;
+    }
+
+    .hero-content {
+        margin-bottom: 50px;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .benefit-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .product {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .product-image,
+    .product-info {
+        width: 100%;
+    }
+
+    .product-info {
+        text-align: center;
+    }
+
+    .product-info > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .features {
+        text-align: left;
+    }
+
+    .offer {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .offer-image,
+    .offer-content {
+        width: 100%;
+    }
+
+    .offer-image {
+        max-width: 550px;
+    }
+
+    .offer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .review-grid {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
 
-
-
-
-.beneficios{
-
-padding:80px 8%;
-text-align:center;
-
-}
-
-
-
-.beneficios h2,
-.avaliacoes h2,
-.oferta h2{
-
-font-size:40px;
-margin-bottom:40px;
-
-}
-
-
-
-.cards{
-
-display:flex;
-gap:30px;
-justify-content:center;
-
-}
-
-
-
-.card{
-
-background:#111;
-
-padding:35px;
-
-border-radius:20px;
-
-width:300px;
-
-transition:.3s;
-
-}
-
-
-.card:hover{
-
-transform:translateY(-10px);
-
-}
-
-
-
-.card p{
-
-color:#bbb;
-margin-top:15px;
-
-}
-
-
-
-
-
-.produto{
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-gap:50px;
-
-padding:80px 8%;
-
-}
-
-
-.produto img{
-
-width:400px;
-border-radius:25px;
-
-}
-
-
-.produto p{
-
-color:#bbb;
-
-font-size:20px;
-
-}
-
-
-
-
-
-.avaliacoes{
-
-padding:80px 8%;
-text-align:center;
-
-}
-
-
-
-.reviews{
-
-display:flex;
-justify-content:center;
-gap:30px;
-
-}
-
-
-
-.reviews div{
-
-background:#111;
-
-padding:30px;
-
-border-radius:20px;
-
-width:280px;
-
-}
-
-
-
-
-
-.oferta{
-
-text-align:center;
-
-padding:100px 20px;
-
-background:#111;
-
-}
-
-
-
-.oferta h1{
-
-font-size:60px;
-
-margin:30px;
-
-}
-
-
-
-footer{
-
-text-align:center;
-
-padding:30px;
-
-color:#777;
-
-}
-
-
-
-
-
-@media(max-width:900px){
-
-
-.hero,
-.produto{
-
-flex-direction:column;
-
-text-align:center;
-
-}
-
-
-.cards,
-.reviews{
-
-flex-direction:column;
-align-items:center;
-
-}
-
-
-.hero h1{
-
-font-size:40px;
-
-}
-
-
-.hero-image img,
-.produto img{
-
-width:90%;
-
-}
-
-
+@media (max-width: 600px) {
+
+    .header {
+        padding: 20px;
+    }
+
+    .header-button {
+        padding: 9px 17px;
+    }
+
+    .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .benefits,
+    .product,
+    .reviews,
+    .offer,
+    .faq {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 40px;
+    }
+
+    .product-circle {
+        width: 280px;
+        height: 280px;
+    }
+
+    .offer-content h2 {
+        font-size: 45px;
+    }
+
+    .price strong {
+        font-size: 55px;
+    }
+
+    .buy-button {
+        width: 100%;
+    }
 }
